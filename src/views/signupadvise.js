@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as config from "../views/config.js";
 
 const windowWidth = Dimensions.get("window").width
 const windowHeight = Dimensions.get("window").height
@@ -39,7 +40,7 @@ export default SignUpAdvisePage = ( {navigation} ) => {
     const call_save_sever = async () => {  
         SetSuccessScreen(true)
         try {
-          const response = await axios.post('http://192.168.1.241:8000/signup_advise', {
+          const response = await axios.post(config.url + '/signup_advise', {
             name_ : Name,
             phone : Phone,
             email: emailValue,
@@ -48,7 +49,7 @@ export default SignUpAdvisePage = ( {navigation} ) => {
             school:valueSchool,
             major: valueMajor
           });
-          console.log(response.data.lock)
+          
           if (response.data.lock === 7) {
             SetEmailValue('')
             setValueMajor('')

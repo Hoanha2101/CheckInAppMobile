@@ -14,6 +14,9 @@ import {
 } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as config from "../views/config.js";
+
+
 
 const windowWidth = Dimensions.get("window").width
 const windowHeight = Dimensions.get("window").height
@@ -82,7 +85,7 @@ export default InputPage = ( {route ,navigation} ) => {
             major = valueMajor)
         setNodeColor_4("#33FF00")
         try {
-          const response = await axios.post('http://192.168.1.241:8000/save_new_people', {
+          const response = await axios.post(config.url + '/save_new_people', {
             number_id : num_rows_id,
             name_ : Name,
             birthday : Birthday,

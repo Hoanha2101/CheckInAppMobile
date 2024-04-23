@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as config from "../views/config.js";
 
 const windowWidth = Dimensions.get("window").width
 const windowHeight = Dimensions.get("window").height
@@ -29,11 +30,11 @@ export default ShowInfoPage = ( {route,navigation} ) => {
     const [InfoExist,setInfoExist] = useState(false)
 
     const call_change_sever = async () => {
-        console.log(id_no_extract)
         try {
-          const response = await axios.post('http://192.168.1.241:8000/change_no_check', {
+          const response = await axios.post(config.url +'/change_no_check', {
             IdNoExtract:id_no_extract
           });
+          
           if (response.data.lock === 6) {
             navigation.navigate("InputPage", { num_rows_id: num_rows_id })
           } else {
@@ -42,6 +43,7 @@ export default ShowInfoPage = ( {route,navigation} ) => {
 
         } catch (error) {
           console.error(error);
+          
         }
       };
 

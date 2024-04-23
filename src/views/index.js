@@ -12,7 +12,6 @@ import CheckInPage from './checkin_page';
 import InputPage from './input_page';
 import GiftBox from './giftbox';
 import ShowInfoPage from './show_info';
-import draft from './draft';
 import SignUpAdvisePage from './signupadvise'
 
 const Stack = createNativeStackNavigator();
@@ -26,7 +25,6 @@ export default RootComponent = function () {
                 <Stack.Screen name="InputPage" component={InputPage}/>
                 <Stack.Screen name="GiftBox" component={GiftBox}/>
                 <Stack.Screen name="ShowInfoPage" component={ShowInfoPage}/>
-                <Stack.Screen name="draft" component={draft}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

@@ -7,6 +7,9 @@ import { useIsFocused } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Animatable from 'react-native-animatable';
 import { useScrollToTop } from '@react-navigation/native';
+import * as config from "../views/config.js";
+
+
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -233,7 +236,7 @@ const animatedStyles = {
 
   const call_Url_base64img = async (base64img) => {
     try {
-      const response = await axios.post('http://192.168.1.241:8000/compare_face', {
+      const response = await axios.post(config.url + "/compare_face", {
         image_base64: base64img
       });
       switch (response.data.lock) {
